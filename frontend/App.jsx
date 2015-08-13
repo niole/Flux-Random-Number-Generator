@@ -1,7 +1,15 @@
 "use strict";
-
 var React = require('react');
-var ScrollContainer = require('./Scroll/ScrollContainer.jsx');
+var GeneratorData = require('./js/GeneratorData');
+var GeneratorAPI = require('./js/GeneratorAPI')
+var NumberGenerator = require('./js/components/NumberGenerator.jsx');
 
-React.render( <ScrollContainer/>, $('#container')[0]);
+// Load Mock Product Data into localStorage
+GeneratorData.init();
 
+// Load Mock API Call
+GeneratorAPI.getGeneratorData();
+
+$(function() {
+  React.render( <NumberGenerator/>, $('#container')[0]);
+});

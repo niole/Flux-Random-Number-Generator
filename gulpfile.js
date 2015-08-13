@@ -8,6 +8,8 @@ var buffer = require('vinyl-buffer');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
+var watch = require('./public/semantic/tasks/watch');
+var build = require('./public/semantic/tasks/build');
 
 var path = {
   JADE: 'frontend/index.jade',
@@ -74,6 +76,8 @@ gulp.task('replaceHTML', function(){
 });
 
 
+gulp.task('watch ui', watch);
+gulp.task('build ui', build);
 gulp.task('default', ['watch']);
 
 gulp.task('production', ['replaceHTML', 'build']);
